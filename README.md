@@ -2,8 +2,7 @@
 
 # README
 
-## Project Name
-A Web Application for Audio Processing and File Handling
+## Project Name - InsightWave
 
 ## Description
 This project is a web-based application that enables file uploads, audio processing, and web interface interactions using Flask. It allows users to manage and process MP3 files efficiently.
