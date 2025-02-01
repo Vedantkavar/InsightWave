@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #003366;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #002244;
+        }
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        input[type="file"], select {
+            margin: 10px 0;
+            padding: 5px;
+        }
+        button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0055a4;
+        }
+        .message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function updateFormAction() {
+            const dropdown = document.getElementById("podcastType");
+            const form = document.getElementById("uploadForm");
+            form.action = dropdown.value;
+        }
+    </script>
+</head>
+<body>
+    <h1>Upload a PDF to Generate Podcast</h1>
+    
+    <form id="uploadForm" method="POST" enctype="multipart/form-data" action="/podcast">
+        <label for="podcastType">Select Podcast Type:</label>
+        <select id="podcastType" name="podcastType" onchange="updateFormAction()">
+            <option value="/podcast">Communicative Podcast</option>
+            <option value="/npodcast">Narrative Podcast</option>
+        </select>
+        <br>
+        <input type="file" name="file" accept=".pdf" required>
+        <button type="submit">Generate</button>
+    </form>
+
+    {% if script_generated %}
+        <p class="message">Podcast script and audio have been generated successfully! <a href="/download/podcast.mp3">Download Podcast</a></p>
+    {% else %}
+        <p class="message">No podcast generated yet. Please upload a PDF to generate.</p>
+    {% endif %}
+</body>
+</html>

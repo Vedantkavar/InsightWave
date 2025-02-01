@@ -1,0 +1,21 @@
+Here is the podcast script based on the research paper:
+
+Guest: What's this productivity paradox in healthcare that everyone's talking about?
+
+Host: Well, despite the huge investments and early successes in artificial intelligence, there's a growing concern that AI might not be living up to its full potential in healthcare. This is what's being called the productivity paradox.
+
+Guest: That's surprising. I thought AI was supposed to revolutionize healthcare. What's going on?
+
+Host: Yeah, it's true that AI has been making a big impact in healthcare, from personalized medicine to decision-making capabilities. But the problem is that these generative AI models, which are supposed to be super smart, are actually struggling to keep up with the complexity of healthcare systems and operations.
+
+Guest: So, what's the solution? How can we make AI more effective in healthcare?
+
+Host: That's where Retrieval Augmented Generation, or RAG, comes in. It's a new approach that combines the strengths of generative AI with the ability to retrieve specific information from a vast knowledge base. We've developed a chatbot framework that uses RAG to provide consultation summaries, diagnostic insights, and even emotional assessments of patients.
+
+Guest: Wow, that sounds like a game-changer. How does it work?
+
+Host: Essentially, our chatbot can have conversations with patients, understand their needs, and provide personalized support. But what's unique is that it can also retrieve relevant information from a vast knowledge base to provide accurate and up-to-date information. This helps to address some of the limitations of traditional generative AI models.
+
+Guest: That's really cool. So, what kind of impact can we expect from this technology?
+
+Host: We're hoping that this framework will help to address the productivity paradox by improving service innovation, patient engagement, and workflow efficiencies. In other words, it has the potential to make healthcare more efficient, effective, and patient-centered.

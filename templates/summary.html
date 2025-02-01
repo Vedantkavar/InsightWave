@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="summary.css">
+    <script defer src="script.js"></script>
+    <title>Summary - Cactus</title>
+</head>
+<style>
+    /* Container for the summary page layout */
+    .summary-container {
+        display: flex;
+        height: 100vh;
+    }
+
+    /* Left half (image section) */
+    .image-section {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .summary-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the image covers the entire section */
+    }
+
+    /* Right half (upload and summary section) */
+    .upload-section {
+        width: 50%;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .upload-section h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .upload-section form {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .upload-section label {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        display: block;
+        color: #333;
+    }
+
+    .upload-section input[type="file"] {
+        padding: 10px;
+        margin-bottom: 20px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        width: 100%;
+    }
+
+    .upload-section .upload-btn {
+        padding: 10px 20px;
+        background-color: #009688;
+        color: white;
+        border: none;
+        font-size: 1.1rem;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .upload-section .upload-btn:hover {
+        background-color: #00796b;
+    }
+
+    /* Summary Section */
+    #summary-result {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    #summary-text {
+        font-size: 1.2rem;
+        color: #555;
+        margin-top: 10px;
+    }
+
+    /* Textbox for displaying summary */
+    #summary-textbox {
+        width: 100%;
+        height: 200px;
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 1rem;
+        color: #333;
+        border: 1px solid #ddd;
+        resize: none;
+        background-color: #f9f9f9;
+    }
+
+    /* Download Button */
+    .download-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .download-btn:hover {
+        background-color: #45a049;
+    }
+</style>
+<body>
+    <div class="summary-container">
+        
+
+        <!-- Right Half (Upload Section) -->
+        <div class="upload-section">
+            <h1>Generate Summary from Research Paper</h1>
+
+            <!-- Upload PDF Form -->
+            <form id="upload-form" action="/summary" method="POST" enctype="multipart/form-data">
+                <label for="pdf-upload">Upload your Research Paper (PDF Only):</label>
+                <input type="file" id="pdf-upload" name="file" accept=".pdf" required>
+
+                <button type="submit" class="upload-btn">Upload & Generate</button>
+            </form>
+
+            <!-- Display Summary -->
+            {% if summary_text %}
+                <div id="summary-result">
+                    <h2>Summary:</h2>
+                    <!-- Display summarized text inside a textbox -->
+                    <textarea id="summary-textbox" readonly>{{ summary_text }}</textarea>
+                    <!-- Show download button -->
+                    <a href="/download-summary" class="download-btn">Download Summary</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

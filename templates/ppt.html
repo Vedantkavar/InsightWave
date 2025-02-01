@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate PPT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #003366;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #002244;
+        }
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        input[type="file"], select {
+            margin: 10px 0;
+            padding: 5px;
+        }
+        button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0055a4;
+        }
+        .message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function updateFormAction() {
+            const dropdown = document.getElementById("pptType");
+            const form = document.getElementById("uploadForm");
+            form.action = "/ppt"; // Same route, but with selected type
+        }
+    </script>
+</head>
+<body>
+    <h1>Upload a Research Paper to Generate PPT</h1>
+    
+    <form id="uploadForm" method="POST" enctype="multipart/form-data" action="/ppt">
+        <label for="pptType">Select PPT Type:</label>
+        <select id="pptType" name="pptType" onchange="updateFormAction()">
+            <option value="formal">Formal PPT</option>
+            <option value="informal">Informal PPT</option>
+        </select>
+        <br>
+        <input type="file" name="file" accept=".pdf" required>
+        <button type="submit">Generate</button>
+    </form>
+
+    {% if ppt_generated %}
+        <p class="message">PPT has been generated successfully! <a href="/download/ppt">Download PPT</a></p>
+    {% else %}
+        <p class="message">No PPT generated yet. Please upload a PDF to generate.</p>
+    {% endif %}
+</body>
+</html>
